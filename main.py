@@ -32,7 +32,6 @@ def jump():
         bird.vy = -100
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 
-
 # Setup the Game
 scene.set_tile_map(img("""
     ................
@@ -239,6 +238,29 @@ scene.set_background_image(img("""
 """))
 info.set_life(2)
 
+# Food 
+sprites.create(img("""
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . f f f f . . .
+    . . . . . . . . f f e e f f . .
+    . . . . . . f f f e d d d f . .
+    . . . . . f e e f e d d d f . .
+    . . . . f e e d d f f d f f . .
+    . . . f f f d d d d d f f . . .
+    . . . f e e f f d d f f . . . .
+    . . f f e d d d d f f . . . . .
+    . . f e e d d d f f . . . . . .
+    . . f e d d d f f . . . . . . .
+    . . f f d d f f . . . . . . . .
+    . . . f f f f . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+"""), SpriteKind.food)
+
+
+
+
 
 # Water 
 water = sprites.create(img("""
@@ -367,7 +389,6 @@ water.y = 1015
 def on_update():
     water.set_position(120, water.y - 0.2)
 game.on_update(on_update)
-
 
 # Die to water
 def on_overlap(sprite, otherSprite):

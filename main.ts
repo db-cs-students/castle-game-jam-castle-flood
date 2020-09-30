@@ -237,6 +237,25 @@ scene.setBackgroundImage(img`
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 `)
 info.setLife(2)
+//  Food 
+sprites.create(img`
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . f f f f . . .
+    . . . . . . . . f f e e f f . .
+    . . . . . . f f f e d d d f . .
+    . . . . . f e e f e d d d f . .
+    . . . . f e e d d f f d f f . .
+    . . . f f f d d d d d f f . . .
+    . . . f e e f f d d f f . . . .
+    . . f f e d d d d f f . . . . .
+    . . f e e d d d f f . . . . . .
+    . . f e d d d f f . . . . . . .
+    . . f f d d f f . . . . . . . .
+    . . . f f f f . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+`, SpriteKind.Food)
 //  Water 
 let water = sprites.create(img`
     99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999

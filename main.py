@@ -71,15 +71,15 @@ scene.set_tile_map(img("""
     b.....b....b...b
     b.....b....b...b
     b.b...b....b...b
-    b...bbbbb......b
+    b...bbbbb....5.b
     b...b...b......b
     b..bb...bb..bbbb
-    bb.bb...b...bbbb
+    bb.bb.5.b...bbbb
     b..bb...b...bbbb
     b..bbb..b...bbbb
     b.bbb...b...bbbb
     b..........b...b
-    b..........b...b
+    b..........b.5.b
     bb.........bb..b
     b...bbbbbbbb...b
     b...bbbbbbbb..bb
@@ -239,8 +239,8 @@ scene.set_background_image(img("""
 info.set_life(2)
 
 # Food 
-sprites.create(img("""
-    . . . . . . . . . . . . . . . .
+scene.set_tile(5, img("""
+ . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . f f f f . . .
     . . . . . . . . f f e e f f . .
@@ -256,7 +256,7 @@ sprites.create(img("""
     . . . f f f f . . . . . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
-"""), SpriteKind.food)
+"""))
 
 
 

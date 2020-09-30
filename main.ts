@@ -237,6 +237,7 @@ scene.setBackgroundImage(img`
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 `)
 info.setLife(2)
+info.setScore(0)
 //  Food 
 scene.setTile(5, img`
  . . . . . . . . . . . . . . . .
@@ -256,6 +257,9 @@ scene.setTile(5, img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
 `)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function on_overlap2(sprite: Sprite, otherSprite: Sprite) {
+    
+})
 //  Water 
 let water = sprites.create(img`
     99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999

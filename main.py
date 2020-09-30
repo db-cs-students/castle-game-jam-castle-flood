@@ -237,6 +237,7 @@ scene.set_background_image(img("""
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 """))
 info.set_life(2)
+info.set_score(0)
 
 # Food 
 scene.set_tile(5, img("""
@@ -257,6 +258,9 @@ scene.set_tile(5, img("""
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
 """))
+def on_overlap2(sprite, otherSprite):
+    pass
+sprites.on_overlap(SpriteKind.player, SpriteKind.player, on_overlap2)
 
 
 

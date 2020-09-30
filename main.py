@@ -371,6 +371,6 @@ game.on_update(on_update)
 # Die to water
 def on_overlap(sprite, otherSprite):
     info.change_life_by(-1)
+    
+
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
-
-

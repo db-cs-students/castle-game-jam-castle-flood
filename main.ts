@@ -366,5 +366,7 @@ game.onUpdate(function on_update() {
 })
 //  Die to water
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function on_overlap(sprite: Sprite, otherSprite: Sprite) {
+    sprite.setPosition(sprite.x, sprite.y - 40)
     info.changeLifeBy(-1)
+    scene.cameraShake()
 })

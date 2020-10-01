@@ -107,17 +107,17 @@ scene.setTileMap(img`
     bb..bbb...bb...b
     b.....b....b...b
     b.....b....b...b
-    b.b..5b....b...b
-    b...bbbbb....5.b
-    b...b...b......b
-    b..bb...bb..bbbb
-    bb.bb.5.b...bbbb
+    b.b...b....b...b
+    b...bbbbb......b
+    b...b5..b.....5b
     b..bb...b...bbbb
+    bb.bb...b...bbbb
+    b..bb...bb..bbbb
     b..bbb..b...bbbb
-    b.bbb...b...bbbb
-    b..........b...b
+    b.bbb...b..bbbbb
+    b......bbb.b...b
     b..........b.5.b
-    bb.........bb..b
+    bb....b....bb..b
     b...bbbbbbbb...b
     b...bbbbbbbb..bb
     b..bbbbbbbbb...b
@@ -125,12 +125,12 @@ scene.setTileMap(img`
     b...........b..b
     bb............bb
     b..............b
-    b5...........b.b
+    b............b.b
     bbbbbb.....b...b
     bbbbbb.........b
     bbbbbb........bb
     bbbbbbbbbbbbb.bb
-    ................
+    .............b..
 `)
 scene.setTile(11, img`
     f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f
@@ -314,7 +314,8 @@ let bread = sprites.create(img`
 scene.placeOnRandomTile(bread, 5)
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_overlap2(sprite: Sprite, otherSprite: Sprite) {
     bread.destroy()
-    info.changeScoreBy(50)
+    info.changeScoreBy(100)
+    info.changeLifeBy(1)
 })
 //  Water 
 let water = sprites.create(img`

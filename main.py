@@ -106,17 +106,17 @@ scene.set_tile_map(img("""
     bb..bbb...bb...b
     b.....b....b...b
     b.....b....b...b
-    b.b..5b....b...b
-    b...bbbbb....5.b
-    b...b...b......b
-    b..bb...bb..bbbb
-    bb.bb.5.b...bbbb
+    b.b...b....b...b
+    b...bbbbb......b
+    b...b5..b.....5b
     b..bb...b...bbbb
+    bb.bb...b...bbbb
+    b..bb...bb..bbbb
     b..bbb..b...bbbb
-    b.bbb...b...bbbb
-    b..........b...b
+    b.bbb...b..bbbbb
+    b......bbb.b...b
     b..........b.5.b
-    bb.........bb..b
+    bb....b....bb..b
     b...bbbbbbbb...b
     b...bbbbbbbb..bb
     b..bbbbbbbbb...b
@@ -124,12 +124,12 @@ scene.set_tile_map(img("""
     b...........b..b
     bb............bb
     b..............b
-    b5...........b.b
+    b............b.b
     bbbbbb.....b...b
     bbbbbb.........b
     bbbbbb........bb
     bbbbbbbbbbbbb.bb
-    ................
+    .............b..
 """))
 scene.set_tile(11, img("""
     f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f
@@ -314,7 +314,8 @@ bread = sprites.create(img("""
 scene.place_on_random_tile(bread, 5)
 def on_overlap2(sprite, otherSprite):
     bread.destroy()
-    info.change_score_by(50)
+    info.change_score_by(100)
+    info.change_life_by(1)
 sprites.on_overlap(SpriteKind.player, SpriteKind.Food, on_overlap2)
 
 # Water 

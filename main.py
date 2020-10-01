@@ -443,7 +443,9 @@ water = sprites.create(img("""
 """), SpriteKind.enemy)
 water.y = 1015
 def on_update():
+    if water.y 
     water.set_position(120, water.y - 0.3)
+
 game.on_update(on_update)
 
 # Die to water

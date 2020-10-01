@@ -11,10 +11,10 @@ bird = sprites.create(img("""
     . . . . . . . . . . . . . . . .
     . . . . 1 1 1 1 1 1 1 . . . . .
     . . . . 1 1 1 1 1 1 1 . . . . .
-    . . . . 1 1 1 1 1 1 1 . . . . .
-    . . . . 1 1 1 1 1 1 1 . . . . .
-    . . . . 1 1 1 1 1 1 1 . . . . .
-    . . . . 1 1 1 1 1 1 1 . . . . .
+    . . . . 1 1 1 1 1 1 f f f . . .
+    . . . . 1 1 1 1 1 1 f f f . . .
+    . . . . 1 1 1 1 1 1 f f f . . .
+    . . . . 1 1 1 1 1 1 f . . . . .
     . . . . 1 1 1 1 1 1 1 . . . . .
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -31,6 +31,42 @@ def jump():
     if bird.is_hitting_tile(CollisionDirection.BOTTOM):
         bird.vy = -100
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
+bird_facing_right = img("""
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . f . . .
+    . . . . . . . . . . . f f . . .
+    . . . . . . . . . f f f . . . .
+    . . . . . . . . f f . . . . . .
+    . . . . . . . f f . . . . . . .
+    . . . . . f f f . . . . . . . .
+    . . . . f f . . . . . . . . . .
+    . . . f f . . . . . . . . . . .
+    . . f f . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+""")
+bird_facing_left = img("""
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . 1 1 1 1 1 1 1 . . . . .
+    . . . . 1 1 1 1 1 1 1 . . . . .
+    . . f f 1 1 1 1 1 1 1 . . . . .
+    . . f f f 1 1 1 1 1 1 . . . . .
+    . . f f f 1 1 1 1 1 1 . . . . .
+    . . . . 1 1 1 1 1 1 1 . . . . .
+    . . . . 1 1 1 1 1 1 1 . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+""")
 
 # Setup the Game
 scene.set_tile_map(img("""
@@ -70,7 +106,7 @@ scene.set_tile_map(img("""
     bb..bbb...bb...b
     b.....b....b...b
     b.....b....b...b
-    b.b...b....b...b
+    b.b..5b....b...b
     b...bbbbb....5.b
     b...b...b......b
     b..bb...bb..bbbb
@@ -88,7 +124,7 @@ scene.set_tile_map(img("""
     b...........b..b
     bb............bb
     b..............b
-    b............b.b
+    b5...........b.b
     bbbbbb.....b...b
     bbbbbb.........b
     bbbbbb........bb
@@ -96,24 +132,41 @@ scene.set_tile_map(img("""
     ................
 """))
 scene.set_tile(11, img("""
-    f f f f f f f f f f f f f f f f
-    1 1 1 1 f f f f d f f f 1 d f f
-    f f f f f f 1 f f f f f d f f 1
-    f f f f d f f f d f 1 f f f f f
-    d f f d d d d d d d d d d d 1 f
-    1 f f d d d d d d d d d d d f f
-    d f d d d d d d d d d d d f 1 f
-    1 f d d d d d d d d d d d f f f
-    f d d d d d d d d d d d d f f f
-    f f d d d d d d d d d d d d f f
-    1 f f d d d d d d d d d d d f f
-    f f d d d d d d d d d d d d 1 f
-    f 1 f f f 1 f f f f f f f f f f
-    f f f f d f f d 1 d f f f f f f
-    1 1 f f 1 f d d f d 1 f f f 1 f
-    f 1 f f d f f f f f d f f f f f
+    f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f
+    1 f 1 e e e e e e e e e e 1 f 1
+    1 1 f 1 e e e e e e e e 1 f 1 1
+    1 e 1 f 1 e e e e e e 1 f 1 f 1
+    1 e e 1 f f f f f f f f 1 f f 1
+    1 e e e f e e e e e e f f f f 1
+    1 e e e f e e e e e e f f f f 1
+    1 e e e f e e e e e e f f f f 1
+    1 e e e f e e e e e e f f f f 1
+    1 e e e f e e e e e e f f f f 1
+    1 e e e f e e e e e e f f f f 1
+    1 e e 1 f f f f f f f f 1 f f 1
+    1 e 1 f 1 f f f f f f 1 f 1 f 1
+    1 1 f 1 f f f f f f f f 1 f 1 1
+    1 f 1 f f f f f f f f f f 1 f 1
+    f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f
 """), True)
-
+scene.set_tile(5, img("""
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+"""))
 scene.set_background_image(img("""
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
@@ -240,31 +293,29 @@ info.set_life(2)
 info.set_score(0)
 
 # Food 
-scene.set_tile(5, img("""
- . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . f f f f . . .
-    . . . . . . . . f f e e f f . .
-    . . . . . . f f f e d d d f . .
-    . . . . . f e e f e d d d f . .
-    . . . . f e e d d f f d f f . .
-    . . . f f f d d d d d f f . . .
-    . . . f e e f f d d f f . . . .
-    . . f f e d d d d f f . . . . .
-    . . f e e d d d f f . . . . . .
-    . . f e d d d f f . . . . . . .
-    . . f f d d f f . . . . . . . .
-    . . . f f f f . . . . . . . . .
+bread = sprites.create(img("""
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
-"""))
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . f f f f . . . .
+    . . . . . . f f . . . f . . . .
+    . . . . . f . . . . . f . . . .
+    . . . . f . . . . . . f . . . .
+    . . . f f . . . . . . f . . . .
+    . . f f . . . . . f f . . . . .
+    . . f . . . . . f f . . . . . .
+    . . f . . . f f . . . . . . . .
+    . . f f f f . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+"""), SpriteKind.Food)
+scene.place_on_random_tile(bread, 5)
 def on_overlap2(sprite, otherSprite):
-    pass
-sprites.on_overlap(SpriteKind.player, SpriteKind.player, on_overlap2)
-
-
-
-
+    bread.destroy()
+    info.change_score_by(50)
+sprites.on_overlap(SpriteKind.player, SpriteKind.Food, on_overlap2)
 
 # Water 
 water = sprites.create(img("""
@@ -400,3 +451,12 @@ def on_overlap(sprite, otherSprite):
     info.change_life_by(-1)
     scene.camera_shake()
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
+
+# Game Loop 
+def on_update2():
+    # bird.say(str(controller.dx()))
+    if controller.dx() > 0:
+        bird.set_image(bird_facing_right)
+    elif controller.dx() < 0:
+        bird.set_image(bird_facing_left)
+game.on_update(on_update2)

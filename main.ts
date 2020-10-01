@@ -23,7 +23,7 @@ let bird = sprites.create(img`
     . . . . 9 9 9 9 . . . . . . . .
     . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
-controller.moveSprite(bird, 75, 0)
+controller.moveSprite(bird, 65, 0)
 scene.cameraFollowSprite(bird)
 bird.setPosition(110, 920)
 bird.ay = 100
@@ -442,13 +442,15 @@ let water = sprites.create(img`
 `, SpriteKind.Enemy)
 water.y = 1015
 game.onUpdate(function on_update() {
-    water.setPosition(120, water.y - 0.2)
+    water.setPosition(120, water.y - 0.3)
 })
 //  Die to water
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function on_overlap(sprite: Sprite, otherSprite: Sprite) {
     sprite.setPosition(sprite.x, sprite.y - 40)
     info.changeLifeBy(-1)
     scene.cameraShake()
+    water.y = 1015
+    bird.setPosition(110, 920)
 })
 //  Game Loop 
 game.onUpdate(function on_update2() {

@@ -23,7 +23,7 @@ bird = sprites.create(img("""
     . . . . 9 9 9 9 . . . . . . . .
     . . . . . . . . . . . . . . . .
 """), SpriteKind.player)
-controller.move_sprite(bird, 75, 0)
+controller.move_sprite(bird, 65, 0)
 scene.camera_follow_sprite(bird)
 bird.set_position(110, 920)
 bird.ay = 100
@@ -67,7 +67,6 @@ bird_facing_left = img("""
     . . . . . . . . . . 9 9 9 . . .
     . . . . . . . . . . . . . . . .
 """)
-
 
 # Setup the Game
 scene.set_tile_map(img("""
@@ -444,7 +443,7 @@ water = sprites.create(img("""
 """), SpriteKind.enemy)
 water.y = 1015
 def on_update():
-    water.set_position(120, water.y - 0.2)
+    water.set_position(120, water.y - 0.3)
 game.on_update(on_update)
 
 # Die to water
@@ -452,6 +451,8 @@ def on_overlap(sprite, otherSprite):
     sprite.set_position(sprite.x, sprite.y - 40)
     info.change_life_by(-1)
     scene.camera_shake()
+    water.y = 1015
+    bird.set_position(110, 920)
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
 
 # Game Loop 
@@ -462,3 +463,4 @@ def on_update2():
     elif controller.dx() < 0:
         bird.set_image(bird_facing_left)
 game.on_update(on_update2)
+

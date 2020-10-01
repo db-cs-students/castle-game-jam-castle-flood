@@ -68,23 +68,24 @@ bird_facing_left = img("""
     . . . . . . . . . . . . . . . .
 """)
 
+
 # Setup the Game
 scene.set_tile_map(img("""
-    bbbbbbbbbbbbbbbb
-    b..............b
-    b..............b
-    b..............b
-    b..............b
+    ................
+    ................
+    ................
+    ................
+    ................
     bbbbbb...bbbbbbb
     b..............b
     b..............b
     b.....bbb.....bb
     bb....bbb......b
     b.....bbb......b
-    b.....bbbb.....b
-    b....bbbb......b
-    bb....bbb.....bb
-    b.....bbb......b
+    b.....b5bb.....b
+    b....bb.b......b
+    bb....b.b.....bb
+    b.......b......b
     b.....bbb......b
     b...bbbbbbbb...b
     bb.........bb..b
@@ -94,7 +95,7 @@ scene.set_tile_map(img("""
     b......b.......b
     b..............b
     b..b.......b...b
-    b..............b
+    b.b............b
     b.....b........b
     b.....bbbbbbbbbb
     bb....bbbbbbbbbb

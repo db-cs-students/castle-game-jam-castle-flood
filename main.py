@@ -462,12 +462,12 @@ water = sprites.create(img("""
 """), SpriteKind.enemy)
 water.x = 130
 water.y = 1015
-#FIX
-#if water.vy >= -25:
-    #water.ay = -5
-#elif water.vy <= -25:
-    #water.vy = 
-water.vy = -20
+def on_update():
+    if water.vy >= -25:
+        water.ay = -5
+    else:
+        water.vy = -25
+game.on_update(on_update)
     
 
 # Win 
@@ -481,6 +481,7 @@ def on_overlap(sprite, otherSprite):
     info.change_life_by(-1)
     scene.camera_shake()
     water.y = 1015
+    water.vy = 0
     bird.set_position(110, 920)
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
 

@@ -461,12 +461,14 @@ let water = sprites.create(img`
 `, SpriteKind.Enemy)
 water.x = 130
 water.y = 1015
-// FIX
-// if water.vy >= -25:
-// water.ay = -5
-// elif water.vy <= -25:
-// water.vy = 
-water.vy = -20
+game.onUpdate(function on_update() {
+    if (water.vy >= -25) {
+        water.ay = -5
+    } else {
+        water.vy = -25
+    }
+    
+})
 //  Win 
 scene.onHitTile(SpriteKind.Player, 9, function on_hit_tile(sprite: Sprite) {
     game.over(true, game.winEffect)
@@ -477,6 +479,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function on_overlap(sprit
     info.changeLifeBy(-1)
     scene.cameraShake()
     water.y = 1015
+    water.vy = 0
     bird.setPosition(110, 920)
 })
 //  Game Loop 

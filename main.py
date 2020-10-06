@@ -406,3 +406,4 @@ def on_update2():
         bird.set_image(bird_facing_left)
 game.on_update(on_update2)
 
+# Music

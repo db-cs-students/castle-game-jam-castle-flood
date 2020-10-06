@@ -206,22 +206,22 @@ scene.setTile(8, img`
     1 f f f f f f f f f f f f f f 1
 `)
 scene.setTile(0, img`
-    1 1 1 d d f f f f f f f d d 1 1
-    1 d d d d f f f f f f f f d d 1
-    d d d d f f f f f f f f f f d d
-    d d f f f 1 1 1 d d d f f f f d
-    f f f f f 1 1 1 d d d d f f f f
-    1 f f f f f d d d d d d d f f f
-    1 1 f f f f d f d f d f d f f f
-    d d d f f f f d f d f d f d f f
-    d d d d f f d f d f d f d f f f
-    d d d d f f f f f f f f f f f f
-    d d d d f f f f f f 1 1 1 f f f
-    d d d f f f f f f d d 1 1 1 f f
-    f d f d f f f f d d d 1 1 1 f f
-    d f d f d f f d d d d d d 1 f f
+    d d d d d f d f d f d f d d f f
+    f 1 d d d f f d f d f d d f f f
+    f f 1 1 f f f f f f f f f f f f
+    f f f f f f f f f f f 1 d d f f
+    f f f f f f f f f f 1 1 d d d f
+    f f 1 1 d d f f f d d d d d d f
+    f 1 1 d d d d f f d d d d d d f
+    f d d d d d d d f d f d f d f f
+    f d d d d d d d f f d f d f d f
+    f d f d f d f d f f f f f f f f
+    f f d f d f d f f f f f f f f f
+    f f f f f f f f f 1 1 1 f f f f
+    f f f f f f f f d d 1 1 1 f f f
+    f f f f f f f d d d d d d f f f
     f d f d f f d d d d d d d d f f
-    f f f f f f d d d d d d d d f f
+    d f d f d f d d d d d d d d f f
 `)
 info.setLife(2)
 info.setScore(0)

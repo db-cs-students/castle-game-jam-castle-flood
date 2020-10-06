@@ -3,7 +3,6 @@ Title: Castle Flood
 Creators: Cameron & Scott
 Description: Escape the castle without being flooded out
 """
-
 # Setup the Player
 bird = sprites.create(img("""
     . . . f . . . . . . . . . . . .
@@ -205,22 +204,22 @@ scene.set_tile(8, img("""
     1 f f f f f f f f f f f f f f 1
 """))
 scene.set_tile(0, img("""
-    1 1 1 d d f f f f f f f d d 1 1
-    1 d d d d f f f f f f f f d d 1
-    d d d d f f f f f f f f f f d d
-    d d f f f 1 1 1 d d d f f f f d
-    f f f f f 1 1 1 d d d d f f f f
-    1 f f f f f d d d d d d d f f f
-    1 1 f f f f d f d f d f d f f f
-    d d d f f f f d f d f d f d f f
-    d d d d f f d f d f d f d f f f
-    d d d d f f f f f f f f f f f f
-    d d d d f f f f f f 1 1 1 f f f
-    d d d f f f f f f d d 1 1 1 f f
-    f d f d f f f f d d d 1 1 1 f f
-    d f d f d f f d d d d d d 1 f f
+    d d d d d f d f d f d f d d f f
+    f 1 d d d f f d f d f d d f f f
+    f f 1 1 f f f f f f f f f f f f
+    f f f f f f f f f f f 1 d d f f
+    f f f f f f f f f f 1 1 d d d f
+    f f 1 1 d d f f f d d d d d d f
+    f 1 1 d d d d f f d d d d d d f
+    f d d d d d d d f d f d f d f f
+    f d d d d d d d f f d f d f d f
+    f d f d f d f d f f f f f f f f
+    f f d f d f d f f f f f f f f f
+    f f f f f f f f f 1 1 1 f f f f
+    f f f f f f f f d d 1 1 1 f f f
+    f f f f f f f d d d d d d f f f
     f d f d f f d d d d d d d d f f
-    f f f f f f d d d d d d d d f f
+    d f d f d f d d d d d d d d f f
 """))
 info.set_life(2)
 info.set_score(0)

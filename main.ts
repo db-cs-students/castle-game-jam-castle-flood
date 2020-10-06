@@ -152,22 +152,22 @@ scene.setTile(11, img`
     1 f f f f f f f f f f f f f f 1
 `, true)
 scene.setTile(5, img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
+   1 1 1 d d f f f f f f f d d 1 1
+    1 d d d d f f f f f f f f d d 1
+    d d d d f f f f f f f f f f d d
+    d d f f f 1 1 1 d d d f f f f d
+    f f f f f 1 1 1 d d d d f f f f
+    1 f f f f f d d d d d d d f f f
+    1 1 f f f f d f d f d f d f f f
+    d d d f f f f d f d f d f d f f
+    d d d d f f d f d f d f d f f f
+    d d d d f f f f f f f f f f f f
+    d d d d f f f f f f 1 1 1 f f f
+    d d d f f f f f f d d 1 1 1 f f
+    f d f d f f f f d d d 1 1 1 f f
+    d f d f d f f d d d d d d 1 f f
+    f d f d f f d d d d d d d d f f
+    f f f f f f d d d d d d d d f f
 `)
 scene.setTile(9, img`
     . . . . . . . . . . . . . . . .
@@ -206,22 +206,22 @@ scene.setTile(8, img`
     1 f f f f f f f f f f f f f f 1
 `)
 scene.setTile(0, img`
-    b b b b e f e b b b b b b b b b
-    b b b b e f e b b b b b b b b b
-    b b b b e f f e e e e e e b b b
-    e e e b b e f f f f f f f e e e
-    f f f e b e f b b b b b f f f f
-    e e f f e f f b b b b b f e e f
-    b b e f f e b b b b b b f e b e
-    b b b e f e b b b e f f f e b b
-    b b b e f e b b e f f e e b b b
-    b b b e f e e e e f e b b b b b
-    b b b e f f f f f f e b b b b b
-    e e e f f e b b e f e e b b b b
-    f f f f f f e b e f f f e b b b
-    e e e e e f e b b e e f e b b b
-    b b b b e f e b b b e f f e b b
-    b b b b e f e b b b b e f e b b
+    1 1 1 d d f f f f f f f d d 1 1
+    1 d d d d f f f f f f f f d d 1
+    d d d d f f f f f f f f f f d d
+    d d f f f 1 1 1 d d d f f f f d
+    f f f f f 1 1 1 d d d d f f f f
+    1 f f f f f d d d d d d d f f f
+    1 1 f f f f d f d f d f d f f f
+    d d d f f f f d f d f d f d f f
+    d d d d f f d f d f d f d f f f
+    d d d d f f f f f f f f f f f f
+    d d d d f f f f f f 1 1 1 f f f
+    d d d f f f f f f d d 1 1 1 f f
+    f d f d f f f f d d d 1 1 1 f f
+    d f d f d f f d d d d d d 1 f f
+    f d f d f f d d d d d d d d f f
+    f f f f f f d d d d d d d d f f
 `)
 info.setLife(2)
 info.setScore(0)

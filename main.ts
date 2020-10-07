@@ -35,8 +35,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
 })
 let bird_facing_right = img`
-    . . . f . . . . . . . . . . . .
-    . . f 2 f . . . . . . . . . . .
+    . . f f . . . . . . . . . . . .
+    . f 2 2 f . . . . . . . . . . .
     . f 2 2 2 f f . . . f f . . . .
     . . f 2 f 2 2 f f f 2 2 f . . .
     . . f 2 f f 2 2 2 2 f 2 2 f . .
@@ -53,8 +53,8 @@ let bird_facing_right = img`
     . . . . . . . f . . . . . . . .
 `
 let bird_facing_left = img`
-    . . . . . . . . . . . . f . . .
-    . . . . . . . . . . . f 2 f . .
+    . . . . . . . . . . . . f f . .
+    . . . . . . . . . . . f 2 2 f .
     . . . . f f . . . f f 2 2 2 f .
     . . . f 2 2 f f f 2 2 f 2 f . .
     . . f 2 2 f 2 2 2 2 f f 2 f . .
@@ -134,40 +134,40 @@ scene.setTileMap(img`
     bbbbbbbbbbbbbbbb
 `)
 scene.setTile(11, img`
-    1 f f f f f f f f f f f f f f 1
-    f 1 f e e e e e e e e e e f 1 f
-    f f 1 f e e e e e e e e f 1 f f
-    f e f 1 f e e e e e e f 1 f 1 f
-    f e e f 1 1 1 1 1 1 1 1 f 1 1 f
-    f e e e 1 e e e e e e 1 1 1 1 f
-    f e e e 1 e e e e e e 1 1 1 1 f
-    f e e e 1 e e e e e e 1 1 1 1 f
-    f e e e 1 e e e e e e 1 1 1 1 f
-    f e e e 1 e e e e e e 1 1 1 1 f
-    f e e e 1 e e e e e e 1 1 1 1 f
-    f e e f 1 1 1 1 1 1 1 1 f 1 1 f
-    f e f 1 f 1 1 1 1 1 1 f 1 f 1 f
-    f f 1 f 1 1 1 1 1 1 1 1 f 1 f f
-    f 1 f 1 1 1 1 1 1 1 1 1 1 f 1 f
-    1 f f f f f f f f f f f f f f 1
+    f f f f f f f f f f f f f f f f
+    f f f e e e e e e e e e e f f f
+    f f f f e e e e e e e e f f f f
+    f e f f f e e e e e e f f f d f
+    f e e f f f f f f f f f f d d f
+    f e e e f e e e e e e f d d d f
+    f e e e f e e e e e e f d d d f
+    f e e e f e e e e e e f d d d f
+    f e e e f e e e e e e f d d d f
+    f e e e f e e e e e e f d d d f
+    f e e e f e e e e e e f d d d f
+    f e e f f f f f f f f f f d d f
+    f e f f f d d d d d d f f f d f
+    f f f f d d d d d d d d f f f f
+    f f f d d d d d d d d d d f f f
+    f f f f f f f f f f f f f f f f
 `, true)
 scene.setTile(5, img`
-   1 1 1 d d f f f f f f f d d 1 1
-    1 d d d d f f f f f f f f d d 1
-    d d d d f f f f f f f f f f d d
-    d d f f f 1 1 1 d d d f f f f d
-    f f f f f 1 1 1 d d d d f f f f
-    1 f f f f f d d d d d d d f f f
-    1 1 f f f f d f d f d f d f f f
-    d d d f f f f d f d f d f d f f
-    d d d d f f d f d f d f d f f f
-    d d d d f f f f f f f f f f f f
-    d d d d f f f f f f 1 1 1 f f f
-    d d d f f f f f f d d 1 1 1 f f
-    f d f d f f f f d d d 1 1 1 f f
-    d f d f d f f d d d d d d 1 f f
+    d d d d d f d f d f d f d d f f
+    f 1 d d d f f d f d f d d f f f
+    f f 1 1 f f f f f f f f f f f f
+    f f f f f f f f f f f 1 d d f f
+    f f f f f f f f f f 1 1 d d d f
+    f f 1 1 d d f f f d d d d d d f
+    f 1 1 d d d d f f d d d d d d f
+    f d d d d d d d f d f d f d f f
+    f d d d d d d d f f d f d f d f
+    f d f d f d f d f f f f f f f f
+    f f d f d f d f f f f f f f f f
+    f f f f f f f f f 1 1 1 f f f f
+    f f f f f f f f d d 1 1 1 f f f
+    f f f f f f f d d d d d d f f f
     f d f d f f d d d d d d d d f f
-    f f f f f f d d d d d d d d f f
+    d f d f d f d d d d d d d d f f
 `)
 scene.setTile(9, img`
     . . . . . . . . . . . . . . . .
@@ -188,19 +188,19 @@ scene.setTile(9, img`
     . . . . f f f f f f f f . . . .
 `, true)
 scene.setTile(8, img`
-1 f f f f f f f f f f f f f f 1
+    1 f f f f f f f f f f f f f f 1
     f 1 f e e e e e e e e e e f 1 f
     f f 1 f e e e e e e e e f 1 f f
     f e f 1 f e e e e e e f 1 f 1 f
     f e e f 1 1 1 1 1 1 1 1 f 1 1 f
     f e e e 1 e e e e e e 1 1 1 1 f
     f e e e 1 e e e e e e 1 1 1 1 f
-    f e e e 1 e e e e e e 1 1 1 1 f
-    f e e e 1 e e e e e e 1 1 1 1 f
+    f e e e 1 e e e e e e 1 f 1 1 f
+    f e e e 1 e e e e e e 1 f 1 1 f
     f e e e 1 e e e e e e 1 1 1 1 f
     f e e e 1 e e e e e e 1 1 1 1 f
     f e e f 1 1 1 1 1 1 1 1 f 1 1 f
-    f e f 1 f 1 1 1 1 1 1 f 1 f 1 f
+    f e f 1 f 1 1 f f 1 1 f 1 f 1 f
     f f 1 f 1 1 1 1 1 1 1 1 f 1 f f
     f 1 f 1 1 1 1 1 1 1 1 1 1 f 1 f
     1 f f f f f f f f f f f f f f 1

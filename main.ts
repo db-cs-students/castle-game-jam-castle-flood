@@ -28,6 +28,10 @@ controller.moveSprite(bird, 65, 0)
 scene.cameraFollowSprite(bird)
 bird.setPosition(110, 920)
 bird.ay = 100
+// if (bird_facing_right, True):
+// bird.set_image(bird_jump_right)
+// elif (bird_facing_left, True):
+// bird.set_image(bird_jump_left)
 controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     if (bird.isHittingTile(CollisionDirection.Bottom)) {
         bird.vy = -100
@@ -95,12 +99,12 @@ let bird_jump_left = img`
     . . . f 2 2 f f f . . . . . . .
     . . f 2 2 f 2 2 2 f . . . . . .
     . f 4 2 2 2 2 2 2 2 f . . . . .
-    . . f f 2 2 2 2 2 2 2 f . . . .
-    . . . f 2 2 2 2 2 2 2 2 f . . .
-    . . . . f 2 2 2 2 2 2 2 2 f . .
-    . . . f 2 2 2 2 2 2 2 2 2 2 f .
-    . . . f 2 2 2 f 2 2 2 2 2 f . .
-    . . . . f f . . f f 5 f f . . .
+    . . f f 2 2 f 2 2 2 2 f . . . .
+    . . . f 2 f 2 2 2 2 2 2 f . . .
+    . . . . f 2 f 2 2 2 2 2 2 f . .
+    . . . . f 2 f 2 f 2 2 2 2 2 f .
+    . . . . f 2 2 f 2 2 2 2 2 f . .
+    . . . . . f f . f f 5 f f . . .
     . . . . . . . f 5 f 5 f . . . .
     . . . . . . . . f 5 5 5 f . . .
     . . . . . . . f 5 f f f . . . .
@@ -224,22 +228,22 @@ scene.setTile(9, img`
     d f d f e e e e e e e e d d f f
 `, true)
 scene.setTile(8, img`
-    f f f f f f f f f f f f f f f f
-    f f f e e e e e e e e e e f f f
-    f f f f e e e e e e e e f f f f
-    f e f f f e e e e e e f f f d f
-    f e e f f f f f f f f f f d d f
+    1 1 f f f f f f f f f f f f 1 1
+    1 1 1 e e e e e e e e e e 1 1 1
+    f 1 1 1 e e e e e e e e 1 1 1 f
+    f e 1 1 1 e e e e e e 1 1 1 d f
+    f e e 1 1 f f f f f f 1 1 d d f
     f e e e f e e e e e e f d d d f
     f e e e f e e e e e e f d d d f
-    f e e e f e e 1 1 e e f d d d f
-    f e e e f e e 1 1 e e f d d d f
     f e e e f e e e e e e f d d d f
     f e e e f e e e e e e f d d d f
-    f e e f f f f f f f f f f d d f
-    f e f f f d d d d d d f f f d f
-    f f f f d d d d d d d d f f f f
-    f f f d d d d d d d d d d f f f
-    f f f f f f f f f f f f f f f f
+    f e e e f e e e e e e f d d d f
+    f e e e f e e e e e e f d d d f
+    f e e 1 1 f f f f f f f f d d f
+    f e 1 1 1 d d d d d d f f f d f
+    f 1 1 1 d d d d d d d d f f f f
+    1 1 1 d d d d d d d d d d f f f
+    1 1 f f f f f f f f f f f f f f
 `)
 scene.setTile(0, img`
     d d d d d f d f d f d f d d f f
@@ -440,6 +444,15 @@ game.onUpdate(function on_update2() {
         bird.setImage(bird_facing_right)
     } else if (controller.dx() < 0) {
         bird.setImage(bird_facing_left)
+    }
+    
+    if (bird.isHittingTile(CollisionDirection.Bottom)) {
+        if (controller.dx() > 0) {
+            bird.setImage(bird_facing_right)
+        } else if (controller.dx() < 0) {
+            bird.setImage(bird_facing_left)
+        }
+        
     }
     
 })

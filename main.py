@@ -30,7 +30,10 @@ bird.ay = 100
 def jump():
     if bird.is_hitting_tile(CollisionDirection.BOTTOM):
         bird.vy = -100
-        
+        #if (bird_facing_right, True):
+            #bird.set_image(bird_jump_right)
+        #elif (bird_facing_left, True):
+            #bird.set_image(bird_jump_left)
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 bird_facing_right = img("""
     . . f f . . . . . . . . . . . .
@@ -93,12 +96,12 @@ bird_jump_left = img("""
     . . . f 2 2 f f f . . . . . . .
     . . f 2 2 f 2 2 2 f . . . . . .
     . f 4 2 2 2 2 2 2 2 f . . . . .
-    . . f f 2 2 2 2 2 2 2 f . . . .
-    . . . f 2 2 2 2 2 2 2 2 f . . .
-    . . . . f 2 2 2 2 2 2 2 2 f . .
-    . . . f 2 2 2 2 2 2 2 2 2 2 f .
-    . . . f 2 2 2 f 2 2 2 2 2 f . .
-    . . . . f f . . f f 5 f f . . .
+    . . f f 2 2 f 2 2 2 2 f . . . .
+    . . . f 2 f 2 2 2 2 2 2 f . . .
+    . . . . f 2 f 2 2 2 2 2 2 f . .
+    . . . . f 2 f 2 f 2 2 2 2 2 f .
+    . . . . f 2 2 f 2 2 2 2 2 f . .
+    . . . . . f f . f f 5 f f . . .
     . . . . . . . f 5 f 5 f . . . .
     . . . . . . . . f 5 5 5 f . . .
     . . . . . . . f 5 f f f . . . .
@@ -223,22 +226,22 @@ scene.set_tile(9, img("""
     d f d f e e e e e e e e d d f f
 """), True)
 scene.set_tile(8, img("""
-    f f f f f f f f f f f f f f f f
-    f f f e e e e e e e e e e f f f
-    f f f f e e e e e e e e f f f f
-    f e f f f e e e e e e f f f d f
-    f e e f f f f f f f f f f d d f
+    1 1 f f f f f f f f f f f f 1 1
+    1 1 1 e e e e e e e e e e 1 1 1
+    f 1 1 1 e e e e e e e e 1 1 1 f
+    f e 1 1 1 e e e e e e 1 1 1 d f
+    f e e 1 1 f f f f f f 1 1 d d f
     f e e e f e e e e e e f d d d f
     f e e e f e e e e e e f d d d f
-    f e e e f e e 1 1 e e f d d d f
-    f e e e f e e 1 1 e e f d d d f
     f e e e f e e e e e e f d d d f
     f e e e f e e e e e e f d d d f
-    f e e f f f f f f f f f f d d f
-    f e f f f d d d d d d f f f d f
-    f f f f d d d d d d d d f f f f
-    f f f d d d d d d d d d d f f f
-    f f f f f f f f f f f f f f f f
+    f e e e f e e e e e e f d d d f
+    f e e e f e e e e e e f d d d f
+    f e e 1 1 f f f f f f f f d d f
+    f e 1 1 1 d d d d d d f f f d f
+    f 1 1 1 d d d d d d d d f f f f
+    1 1 1 d d d d d d d d d d f f f
+    1 1 f f f f f f f f f f f f f f
 """))
 scene.set_tile(0, img("""
     d d d d d f d f d f d f d d f f
@@ -443,6 +446,12 @@ def on_update2():
         bird.set_image(bird_facing_right)
     elif controller.dx() < 0:
         bird.set_image(bird_facing_left)
+
+    if bird.is_hitting_tile(CollisionDirection.BOTTOM):
+        if controller.dx() > 0:
+            bird.set_image(bird_facing_right)
+        elif controller.dx() < 0: 
+            bird.set_image(bird_facing_left)
 game.on_update(on_update2)
 
 

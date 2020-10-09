@@ -295,7 +295,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_overlap2(sprit
     info.changeLifeBy(1)
 })
 //  Water 
-let water = sprites.create(img`
+let void_ = sprites.create(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -417,13 +417,13 @@ let water = sprites.create(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 `, SpriteKind.Enemy)
-water.x = 130
-water.y = 1015
+void_.x = 130
+void_.y = 1015
 game.onUpdate(function on_update() {
-    if (water.vy >= -25) {
-        water.ay = -5
+    if (void_.vy >= -25) {
+        void_.ay = -5
     } else {
-        water.vy = -25
+        void_.vy = -25
     }
     
 })
@@ -436,8 +436,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function on_overlap(sprit
     sprite.setPosition(sprite.x, sprite.y - 40)
     info.changeLifeBy(-1)
     scene.cameraShake()
-    water.y = 1015
-    water.vy = 0
+    void_.y = 1015
+    void_.vy = 0
     bird.setPosition(110, 920)
 })
 //  Game Loop 

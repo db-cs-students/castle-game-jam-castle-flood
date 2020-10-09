@@ -293,7 +293,7 @@ def on_overlap2(sprite, otherSprite):
 sprites.on_overlap(SpriteKind.player, SpriteKind.Food, on_overlap2)  
 
 # Water 
-water = sprites.create(img("""
+void = sprites.create(img("""
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -415,13 +415,13 @@ water = sprites.create(img("""
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 """), SpriteKind.enemy)
-water.x = 130
-water.y = 1015
+void.x = 130
+void.y = 1015
 def on_update():
-    if water.vy >= -25:
-        water.ay = -5
+    if void.vy >= -25:
+        void.ay = -5
     else:
-        water.vy = -25
+        void.vy = -25
 game.on_update(on_update)
 
 # Win 
@@ -434,8 +434,8 @@ def on_overlap(sprite, otherSprite):
     sprite.set_position(sprite.x, sprite.y - 40)
     info.change_life_by(-1)
     scene.camera_shake()
-    water.y = 1015
-    water.vy = 0
+    void.y = 1015
+    void.vy = 0
     bird.set_position(110, 920)
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
 

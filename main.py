@@ -26,14 +26,15 @@ bird = sprites.create(img("""
 controller.move_sprite(bird, 65, 0)
 scene.camera_follow_sprite(bird)
 bird.set_position(110, 920)
-bird.ay = 100
+bird.ay = 200
+bird_dir = 0
 def jump():
     if bird.is_hitting_tile(CollisionDirection.BOTTOM):
-        bird.vy = -100
-        #if (bird_facing_right, True):
-            #bird.set_image(bird_jump_right)
-        #elif (bird_facing_left, True):
-            #bird.set_image(bird_jump_left)
+        bird.vy = -150
+        if bird_dir == 0:  
+            bird.set_image(bird_jump_right)
+        elif bird_dir == 1:
+            bird.set_image(bird_jump_left)
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 bird_facing_right = img("""
     . . f f . . . . . . . . . . . .
@@ -113,13 +114,13 @@ scene.set_tile_map(img("""
     ................
     ................
     ................
-    ................
     ............9...
-    bbbbbb...bbbbbbb
+    bbbbb.....bbbbbb
     b..............b
     b..............b
+    b......b.......b
     b.....bbb.....bb
-    bb....bbb......b
+    bbb...bbb......b
     b.....b88......b
     b.....b5bb.....b
     b....bb.b......b
@@ -441,10 +442,13 @@ sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
 
 # Game Loop 
 def on_update2():
+    global bird_dir
     #bird.say(str(controller.dx()))
     if controller.dx() > 0:
+        bird_dir = 0
         bird.set_image(bird_facing_right)
     elif controller.dx() < 0:
+        bird_dir = 1
         bird.set_image(bird_facing_left)
 
     if bird.is_hitting_tile(CollisionDirection.BOTTOM):

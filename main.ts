@@ -27,14 +27,17 @@ let bird = sprites.create(img`
 controller.moveSprite(bird, 65, 0)
 scene.cameraFollowSprite(bird)
 bird.setPosition(110, 920)
-bird.ay = 100
-// if (bird_facing_right, True):
-// bird.set_image(bird_jump_right)
-// elif (bird_facing_left, True):
-// bird.set_image(bird_jump_left)
+bird.ay = 200
+let bird_dir = 0
 controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     if (bird.isHittingTile(CollisionDirection.Bottom)) {
-        bird.vy = -100
+        bird.vy = -150
+        if (bird_dir == 0) {
+            bird.setImage(bird_jump_right)
+        } else if (bird_dir == 1) {
+            bird.setImage(bird_jump_left)
+        }
+        
     }
     
 })
@@ -115,13 +118,13 @@ scene.setTileMap(img`
     ................
     ................
     ................
-    ................
     ............9...
-    bbbbbb...bbbbbbb
+    bbbbb.....bbbbbb
     b..............b
     b..............b
+    b......b.......b
     b.....bbb.....bb
-    bb....bbb......b
+    bbb...bbb......b
     b.....b88......b
     b.....b5bb.....b
     b....bb.b......b
@@ -439,10 +442,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function on_overlap(sprit
 })
 //  Game Loop 
 game.onUpdate(function on_update2() {
+    
     // bird.say(str(controller.dx()))
     if (controller.dx() > 0) {
+        bird_dir = 0
         bird.setImage(bird_facing_right)
     } else if (controller.dx() < 0) {
+        bird_dir = 1
         bird.setImage(bird_facing_left)
     }
     

@@ -22,6 +22,7 @@ bird = sprites.create(img("""
     . . . . f f f 5 f . . . . . . .
     . . . . . . . f . . . . . . . .
 """), SpriteKind.player)
+game.show_long_text("Fly up the castle and escape the water!", DialogLayout.BOTTOM)
 #bird.set_flag(SpriteFlag.SHOW_PHYSICS, True)
 controller.move_sprite(bird, 65, 0)
 scene.camera_follow_sprite(bird)
@@ -174,20 +175,20 @@ scene.set_tile_map(img("""
 """))
 scene.set_tile(11, img("""
     f f f f f f f f f f f f f f f f
-    f f f e e e e e e e e e e f f f
-    f f f f e e e e e e e e f f f f
-    f e f f f e e e e e e f f f d f
-    f e e f f f f f f f f f f d d f
-    f e e e f e e e e e e f d d d f
-    f e e e f e e e e e e f d d d f
-    f e e e f e e e e e e f d d d f
-    f e e e f e e e e e e f d d d f
-    f e e e f e e e e e e f d d d f
-    f e e e f e e e e e e f d d d f
-    f e e f f f f f f f f f f d d f
-    f e f f f d d d d d d f f f d f
-    f f f f d d d d d d d d f f f f
-    f f f d d d d d d d d d d f f f
+    d d d d d d b f d d d d d d b f
+    d d d b b b b f d d d d d b b f
+    f f f f f f f f f f f f f f f f
+    d d b f d d d d d d b f d d d d
+    b b b f d d d d d b b f d d d b
+    f f f f f f f f f f f f f f f f
+    d d d d d d b f d d d d d d b f
+    d d d d d b b f d d d d b b b f
+    f f f f f f f f f f f f f f f f
+    d d b f d d d d d d b f d d d d
+    b b b f d d d d b b b f d d d d
+    f f f f f f f f f f f f f f f f
+    d d d d d d b f d d d d d d b f
+    d d d d b b b f d d d d d b b f
     f f f f f f f f f f f f f f f f
 """), True)
 scene.set_tile(5, img("""
@@ -289,9 +290,7 @@ def on_overlap2(sprite, otherSprite):
     bread.destroy()
     info.change_score_by(100)
     info.change_life_by(1)
-sprites.on_overlap(SpriteKind.player, SpriteKind.Food, on_overlap2) 
-
-# Flag 
+sprites.on_overlap(SpriteKind.player, SpriteKind.Food, on_overlap2)  
 
 # Water 
 water = sprites.create(img("""
